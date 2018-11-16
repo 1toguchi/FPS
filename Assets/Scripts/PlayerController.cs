@@ -29,13 +29,15 @@ public class PlayerController : MonoBehaviour
 
         float moveSpeed = _speed * Input.GetAxis("Vertical");
 
+
         _characterController.SimpleMove(forward * moveSpeed * Time.deltaTime);
         _characterController.SimpleMove(horizontal * moveHor * Time.deltaTime);
+
     }
 
     private void Shoot()
     {
-        Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+        Ray ray = this.transform.root.Find("Camera").GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
         Vector3 worldDir = ray.direction;
 
 //        Vector3 pos = GameObject.Find("ShootPoint").transform.position;
