@@ -1,13 +1,10 @@
-using System;
 using UnityEngine;
-
 
 public class PlayerController : MonoBehaviour
 
 {
     [SerializeField] CharacterController _characterController;
     [SerializeField] float _speed;
-    [SerializeField] float _rotateSpeed;
     [SerializeField] GameObject _bullet;
 
     private void Update()
@@ -37,7 +34,7 @@ public class PlayerController : MonoBehaviour
     private void Shoot()
 
     {
-        Ray ray = this.transform.root.Find("Camera").GetComponent<Camera>().ScreenPointToRay(
+        Ray ray = transform.root.Find("Camera").GetComponent<Camera>().ScreenPointToRay(
             Input.mousePosition);
         Vector3 worldDir = ray.direction;
 
