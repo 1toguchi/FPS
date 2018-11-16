@@ -29,10 +29,10 @@ public class PlayerController : MonoBehaviour
 
         float moveSpeed = _speed * Input.GetAxis("Vertical");
 
-
         _characterController.SimpleMove(forward * moveSpeed * Time.deltaTime);
         _characterController.SimpleMove(horizontal * moveHor * Time.deltaTime);
 
+        GameObject.Find("Camera").transform.position = transform.position;
     }
 
     private void Shoot()
@@ -40,8 +40,6 @@ public class PlayerController : MonoBehaviour
         Ray ray = this.transform.root.Find("Camera").GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
         Vector3 worldDir = ray.direction;
 
-//        Vector3 pos = GameObject.Find("ShootPoint").transform.position;
-//        Debug.Log(String.Format("pos is {0}", pos));
         GameObject b = Instantiate(_bullet, transform.position, Quaternion.identity);
         b.gameObject.GetComponent<Rigidbody>().AddForce(worldDir.normalized * 2000);
     }
