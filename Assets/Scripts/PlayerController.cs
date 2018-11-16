@@ -1,14 +1,13 @@
 using System;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour
+
 {
     [SerializeField] CharacterController _characterController;
-
     [SerializeField] float _speed;
-
     [SerializeField] float _rotateSpeed;
-
     [SerializeField] GameObject _bullet;
 
     private void Update()
@@ -20,29 +19,30 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     private void CharacterMoveUpdate()
     {
-        float moveHor =  _speed * Input.GetAxis("Horizontal");
-
+        float moveHor = _speed * Input.GetAxis("Horizontal");
         Vector3 forward = transform.transform.forward;
         Vector3 horizontal = transform.transform.right;
-
         float moveSpeed = _speed * Input.GetAxis("Vertical");
 
         _characterController.SimpleMove(forward * moveSpeed * Time.deltaTime);
         _characterController.SimpleMove(horizontal * moveHor * Time.deltaTime);
 
-        //
         GameObject.Find("Camera").transform.position = transform.position;
-        //hogehoge
     }
 
+
     private void Shoot()
+
     {
-        Ray ray = this.transform.root.Find("Camera").GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+        Ray ray = this.transform.root.Find("Camera").GetComponent<Camera>().ScreenPointToRay(
+            Input.mousePosition);
         Vector3 worldDir = ray.direction;
 
         GameObject b = Instantiate(_bullet, transform.position, Quaternion.identity);
+
         b.gameObject.GetComponent<Rigidbody>().AddForce(worldDir.normalized * 2000);
     }
 }
