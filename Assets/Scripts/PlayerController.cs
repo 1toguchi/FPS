@@ -32,7 +32,9 @@ public class PlayerController : MonoBehaviour
         _characterController.SimpleMove(forward * moveSpeed * Time.deltaTime);
         _characterController.SimpleMove(horizontal * moveHor * Time.deltaTime);
 
+        //
         GameObject.Find("Camera").transform.position = transform.position;
+        //hogehoge
     }
 
     private void Shoot()
