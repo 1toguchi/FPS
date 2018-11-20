@@ -9,3 +9,4 @@ public class PointOfViewController : MonoBehaviour
         transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, 0.0f);
     }
 }
+
