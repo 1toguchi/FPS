@@ -166,7 +166,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterController: {fileID: 129878886}
   _speed: 500
-  _rotateSpeed: 3
   _bullet: {fileID: 2017944456}
 --- !u!143 &129878886
 CharacterController:
@@ -211,6 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a76ae6872b5854643b7583a70dc89c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 5
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
